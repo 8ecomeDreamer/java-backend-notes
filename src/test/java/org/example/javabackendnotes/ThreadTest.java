@@ -81,4 +81,15 @@ public class ThreadTest {
     public void testStopThread(){
         System.out.println("线程停止的方法有 sleep、join、yield、setDaemon，最常用的是sleep和join");
     }
+
+    @Test
+    public void testIntroduceFutureTask(){
+        System.out.println("初步了解FutureTask, 更详细的可以在后期学习线程池时补充。");
+
+        System.out.println("FutureTask用来干什么？");
+        System.out.println("1.判断线程状态");
+        System.out.println("2.取消/中断线程运行");
+        System.out.println("3.获取线程结果");
+        System.out.println("这三个目的也分别对应其api,isDone()、cancel()、get()。");
+    }
 }

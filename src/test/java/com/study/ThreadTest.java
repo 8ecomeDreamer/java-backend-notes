@@ -1,8 +1,8 @@
-package org.example.javabackendnotes;
+package com.study;
 
-import org.example.javabackendnotes.code.thread.CallableCreate;
-import org.example.javabackendnotes.code.thread.RunnableCreate;
-import org.example.javabackendnotes.code.thread.ThreadCreate;
+import com.study.thread.RunnableCreate;
+import com.study.thread.ThreadCreate;
+import com.study.thread.CallableCreate;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -91,5 +91,10 @@ public class ThreadTest {
         System.out.println("2.取消/中断线程运行");
         System.out.println("3.获取线程结果");
         System.out.println("这三个目的也分别对应其api,isDone()、cancel()、get()。");
+    }
+
+    @Test
+    public void testThreadState(){
+        System.out.println("可以通过img的thread-state初步熟记线程状态");
     }
 }

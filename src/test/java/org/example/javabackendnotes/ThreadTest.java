@@ -51,6 +51,7 @@ public class ThreadTest {
 
     @Test
     public void testCallableCreate(){
+        System.out.println("通过Callable创建线程类需要配合FutureTask使用");
 
         // 1.创建线程 通过FutureTask传入Callable类实现
         FutureTask<String> task = new FutureTask<>(new CallableCreate());
@@ -62,12 +63,22 @@ public class ThreadTest {
             // 3.获取结果 通常需要加上ExecutionException异常
             String result = task.get();
             System.out.println(result);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
+    }
 
+    @Test
+    public void testThreadMethodComparison(){
+        System.out.println("多线程创建方式对比");
 
+        System.out.println("1.线程调用start方法其实也是jvm底层调用线程的run方法。");
+        System.out.println("2.Thread类创建的话有单继承的困境，而Callable和Runnable通过implements启动，可以更好的将业务与线程分离。");
+        System.out.println("3.虽然Callable会有一个返回值，但是推荐使用Runnable。");
+    }
+
+    @Test
+    public void testStopThread(){
+        System.out.println("线程停止的方法有 sleep、join、yield、setDaemon，最常用的是sleep和join");
     }
 }

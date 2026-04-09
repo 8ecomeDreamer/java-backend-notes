@@ -1,9 +1,13 @@
 package org.example.javabackendnotes;
 
+import org.example.javabackendnotes.code.thread.CallableCreate;
 import org.example.javabackendnotes.code.thread.RunnableCreate;
 import org.example.javabackendnotes.code.thread.ThreadCreate;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 
 @SpringBootTest
 public class ThreadTest {
@@ -43,5 +47,27 @@ public class ThreadTest {
         people.join();
         cat.join();
         cat.join();
+    }
+
+    @Test
+    public void testCallableCreate(){
+
+        // 1.创建线程 通过FutureTask传入Callable类实现
+        FutureTask<String> task = new FutureTask<>(new CallableCreate());
+        // 2.启动线程 将任务传入Thread类
+        Thread thread = new Thread(task);
+        thread.start();
+
+        try {
+            // 3.获取结果 通常需要加上ExecutionException异常
+            String result = task.get();
+            System.out.println(result);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

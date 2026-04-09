@@ -1,12 +1,12 @@
-package org.example.javabackendnotes;
+package com.study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaBackendNotesApplication {
+public class BackendNotesApplication {
     public static void main(String[] args) {
-        SpringApplication.run(JavaBackendNotesApplication.class, args);
+        SpringApplication.run(BackendNotesApplication.class, args);
     }
 
 }

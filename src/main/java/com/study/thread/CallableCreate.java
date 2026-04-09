@@ -1,4 +1,4 @@
-package org.example.javabackendnotes.code.thread;
+package com.study.thread;
 
 import java.util.concurrent.Callable;
 

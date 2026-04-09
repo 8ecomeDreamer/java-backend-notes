@@ -1,4 +1,4 @@
-package org.example.javabackendnotes.code.thread;
+package com.study.thread;
 
 /**
  * 1.通过thread类创建线程

@@ -1,4 +1,4 @@
-package org.example.javabackendnotes.code.thread;
+package com.study.thread;
 
 /**
  * 2.通过实现Runnable接口创建多线程

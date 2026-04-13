@@ -8,7 +8,6 @@ public class RunnableCreate implements Runnable{
     @Override
     public void run() {
 
-
         for (int i = 0; i < 10; i++) {
             try {//sleep会发生异常要显示处理
                 Thread.sleep(20);//暂停20毫秒

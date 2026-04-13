@@ -97,4 +97,21 @@ public class ThreadTest {
     public void testThreadState(){
         System.out.println("可以通过img的thread-state初步熟记线程状态");
     }
+
+    @Test
+    public void testThreadPriority(){
+        System.out.println("线程优先级");
+        System.out.println("1.线程优先级范围是1-10，默认是5");
+        System.out.println("2.优先级高的线程会优先执行");
+    }
+    @Test
+    public void testProcessorThreadComparison(){
+        System.out.println("进程线程对比");
+
+    }
+    @Test
+    public void testThreadSecurity(){
+        System.out.println("线程安全性问题");
+
+    }
 }

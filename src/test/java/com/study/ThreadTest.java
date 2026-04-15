@@ -111,7 +111,17 @@ public class ThreadTest {
     }
     @Test
     public void testThreadSecurity(){
-        System.out.println("线程安全性问题");
+        System.out.println("线程安全性问题:");
+        System.out.println("1.原子性问题,即a和b两个操作中断，但结果没有变回原来的值。");
+        System.out.println("2.可见性问题，即用户a和用户b同一时间看到的结果不同步。");
+        System.out.println("3.活跃性问题，分为死锁、活锁、饥饿性问题。死锁为竞争资源，活锁为完全不竞争资源，饥饿问题则是线程无异常但无法继续运行。");
+
+    }
+
+
+    @Test
+    public void testJMM(){
+        System.out.println("JMM内存模型——（内容多且抽象，适合多次阅读）");
 
     }
 }

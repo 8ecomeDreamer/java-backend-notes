@@ -122,6 +122,11 @@ public class ThreadTest {
     @Test
     public void testJMM(){
         System.out.println("JMM内存模型——（内容多且抽象，适合多次阅读）");
+        System.out.println("1.JMM主要是用来做什么的？");
+        System.out.println("2.JMM中常见的2种消息传递方式");
+        System.out.println("3.在java中,什么是共享变量？");
+        System.out.println("4.请简单描述volatile和synchronized两个关键字的作用");
+        System.out.println("5.JMM与java运行内存的区别");
 
     }
 }

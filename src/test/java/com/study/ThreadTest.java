@@ -130,6 +130,13 @@ public class ThreadTest {
         System.out.println("4.请简单描述volatile和synchronized两个关键字的作用");
         System.out.println("volatile保证线程可见性，synchronized保证线程的原子性。");
         System.out.println("5.JMM与java运行内存的区别");
+        System.out.println("6.内存可见性是怎么发生的");
+        System.out.println("7.什么是重排序");
+        System.out.println("8.重排序有哪几种？");
+        System.out.println("9.什么是顺序一致模型");
+        System.out.println("10.JMM为什么不保证顺序一致性？");
+        System.out.println("11.什么是happens-before？");
+        System.out.println("12.happens-before关系有哪些？");
 
     }
 }

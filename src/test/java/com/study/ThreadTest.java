@@ -137,6 +137,10 @@ public class ThreadTest {
         System.out.println("10.JMM为什么不保证顺序一致性？");
         System.out.println("11.什么是happens-before？");
         System.out.println("12.happens-before关系有哪些？");
+    }
 
+    @Test
+    public void testVolatile(){
+        System.out.println("volatile保证线程之间的可见性");
     }
 }

@@ -123,9 +123,12 @@ public class ThreadTest {
     public void testJMM(){
         System.out.println("JMM内存模型——（内容多且抽象，适合多次阅读）");
         System.out.println("1.JMM主要是用来做什么的？");
+        System.out.println("JMM主要是负责管理java中的内存模型，以及线程之间的通信方式（正解：JMM是Java Memory Model，其定义了java中变量、线程如何与主存以及工作内存进行交互的规则。）");
         System.out.println("2.JMM中常见的2种消息传递方式");
+        System.out.println("分别是消息传递并发模型与共享内存并发模型，java使用的是共享内存并发模型。");
         System.out.println("3.在java中,什么是共享变量？");
         System.out.println("4.请简单描述volatile和synchronized两个关键字的作用");
+        System.out.println("volatile保证线程可见性，synchronized保证线程的原子性。");
         System.out.println("5.JMM与java运行内存的区别");
 
     }

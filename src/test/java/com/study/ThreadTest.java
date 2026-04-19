@@ -123,20 +123,27 @@ public class ThreadTest {
     public void testJMM(){
         System.out.println("JMM内存模型——（内容多且抽象，适合多次阅读）");
         System.out.println("1.JMM主要是用来做什么的？");
-        System.out.println("JMM主要是负责管理java中的内存模型，以及线程之间的通信方式（正解：JMM是Java Memory Model，其定义了java中变量、线程如何与主存以及工作内存进行交互的规则。）");
+        System.out.println("  JMM主要是负责管理java中的内存模型，以及线程之间的通信方式（正解：JMM是Java Memory Model，其定义了java中变量、线程如何与主存以及工作内存进行交互的规则。）");
         System.out.println("2.JMM中常见的2种消息传递方式");
-        System.out.println("分别是消息传递并发模型与共享内存并发模型，java使用的是共享内存并发模型。");
+        System.out.println("  分别是消息传递并发模型与共享内存并发模型，java使用的是共享内存并发模型。");
         System.out.println("3.在java中,什么是共享变量？");
+        System.out.println("  要先了解java运行内存，java运行内存中有栈、程序计数器、堆、方法区，堆和方法区是线程共享的资源，栈和程序计数器则是线程私有的资源，因此共享资源一般是指堆中的变量。");
         System.out.println("4.请简单描述volatile和synchronized两个关键字的作用");
-        System.out.println("volatile保证线程可见性，synchronized保证线程的原子性。");
+        System.out.println("  volatile保证线程可见性，synchronized保证线程的原子性。");
         System.out.println("5.JMM与java运行内存的区别");
+        System.out.println("  JMM是物理意义上的内存管理规则，是不存在的，而java运行内存是基于计算机的内存进行管理的。");
         System.out.println("6.内存可见性是怎么发生的");
-        System.out.println("7.什么是重排序");
-        System.out.println("8.重排序有哪几种？");
-        System.out.println("9.什么是顺序一致模型");
-        System.out.println("10.JMM为什么不保证顺序一致性？");
-        System.out.println("11.什么是happens-before？");
-        System.out.println("12.happens-before关系有哪些？");
+        System.out.println("  （正解：是因为计算机将共享内存存于高速缓冲区，线程访问缓存会先查找本地缓存确认访问变化后再查找共享缓存并更新到本地缓存再读取本地缓存的值，因此线程与线程之间有可见性。）");
+        System.out.println("7.如何保证内存可见性？");
+        System.out.println(" 使用volatile关键字。");
+        System.out.println("8.什么是重排序");
+        System.out.println("  重排序指的是减少计算机流水线指令中断的一种操作，有助于提升效率。");
+        System.out.println("9.重排序有哪几种？");
+        System.out.println("10.什么是顺序一致模型");
+        System.out.println("11.JMM为什么不保证顺序一致性？");
+        System.out.println("12.什么是happens-before？");
+        System.out.println("13.happens-before关系有哪些？");
+        System.out.println("14.描述一下线程的可见性、原子性、有序性。");
     }
 
     @Test

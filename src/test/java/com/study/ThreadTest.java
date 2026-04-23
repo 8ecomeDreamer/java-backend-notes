@@ -135,19 +135,35 @@ public class ThreadTest {
         System.out.println("6.内存可见性是怎么发生的");
         System.out.println("  （正解：是因为计算机将共享内存存于高速缓冲区，线程访问缓存会先查找本地缓存确认访问变化后再查找共享缓存并更新到本地缓存再读取本地缓存的值，因此线程与线程之间有可见性。）");
         System.out.println("7.如何保证内存可见性？");
-        System.out.println(" 使用volatile关键字。");
+        System.out.println("  使用volatile关键字。");
         System.out.println("8.什么是重排序");
         System.out.println("  重排序指的是减少计算机流水线指令中断的一种操作，有助于提升效率。");
         System.out.println("9.重排序有哪几种？");
+        System.out.println("  （正解：1.编译器优化重排 2，指令并行重排 3.内存系统重排）");
         System.out.println("10.什么是顺序一致模型");
+        System.out.println("  顺序一致模型是指为了避免线程发生数据竞争的情况推导的一款模型，java须按照模型的顺序严格执行它的代码。");
         System.out.println("11.JMM为什么不保证顺序一致性？");
+        System.out.println("  (正解：JMM没有保证未同步程序的执行结果与该程序在顺序一致性中执行结果一致，因为如果要保证结果一致，那么JMM需要禁止大量的优化，对程序的执行性能会有很大的影响。)");
         System.out.println("12.什么是happens-before？");
+        System.out.println("  happens-before关系是指程序执行顺序，happens-before关系是JMM中一个很重要的概念。只要不改变最后的编译结果，允许编译器和处理器优化。");
         System.out.println("13.happens-before关系有哪些？");
+        System.out.println("  （正解：1.程序顺序规则 2.监视器锁规则 3.volatile变量规则 4.传递性 5.start规则 6.join规则）");
         System.out.println("14.描述一下线程的可见性、原子性、有序性。");
+        System.out.println("  线程可见性：线程与线程之间能互相查看资源。 原子性：线程操作之间要么全部成功，要么全部失败。有序性：线程之间有顺序。");
     }
 
     @Test
     public void testVolatile(){
         System.out.println("volatile保证线程之间的可见性");
+        System.out.println("1.volatile能确保线程的可见性");
+        System.out.println("2.volatile能禁止指令重排");
+    }
+
+
+
+    @Test
+    public void testSynchronized(){
+        System.out.println("Synchronized能确保线程之间的原子性");
+        System.out.println("1.synchronized有四种锁，无锁，偏向锁，轻量锁，重量级锁");
     }
 }

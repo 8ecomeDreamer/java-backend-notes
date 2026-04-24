@@ -33,6 +33,11 @@ public class JavaBasicTest {
     }
 
     @Test
+    public void testArrayExample() {
+        System.out.println("数组部分在ArrayExample");
+    }
+
+    @Test
     public void testReverseInteger() {
         System.out.println("翻转整数： 给定一个 32 位有符号整数，将整数中的数字进行反转。 输入: 123 输出: 321  输入: -123 输出: -321");
         System.out.println("翻转前 123" + " 翻转结果为：" + ReverseInteger.reverse(123));

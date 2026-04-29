@@ -120,7 +120,7 @@ public class ClassExample {
 
 
 
-    public static class cloneConstructor {
+    public static class cloneConstructor implements Cloneable{
         private String animal;
         private String variety;
 
@@ -160,7 +160,7 @@ public class ClassExample {
 
     }
 
-    public static void classConstructor() {
+    public static void classConstructor() throws CloneNotSupportedException {
         System.out.println();
         System.out.println("构造方法：Java 有两种类型的构造方法：无参构造方法和有参构造方法。");
         System.out.println("创建构造方法的规则：");
@@ -205,13 +205,15 @@ public class ClassExample {
         System.out.println("2.clone方法：");
         cloneConstructor cloneConstructor5 = new cloneConstructor("猫", "无毛猫");
         cloneConstructor cloneConstructor6  = (cloneConstructor) cloneConstructor5.clone();
+        cloneConstructor6.out();
 
     }
 
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
+
         classIntroduce();
         classCreate();
         classObjectMethod();
@@ -219,5 +221,6 @@ public class ClassExample {
         classMethod();
         classNativeMethod();
         classConstructor();
+
     }
 }

@@ -59,14 +59,156 @@ public class ClassExample {
     }
 
 
+
+    public static class noArgsConstructor {
+
+        private String argsName;
+
+        public noArgsConstructor() {
+            System.out.println("无参构造函数,由编译器默认创建 ");
+        }
+
+        public String getArgsName() {
+            return this.argsName;
+        }
+
+    }
+
+
+
+
+    public static class argsConstructor {
+
+        private String argsName;
+
+        public argsConstructor(String argsName) {
+            System.out.println("有参构造函数，必须要传入固定的参数，否则报错");
+            this.argsName = argsName;
+        }
+
+        public String getArgsName() {
+            return this.argsName;
+        }
+
+        public String setArgsName() {
+            return this.argsName;
+        }
+
+    }
+
+    public static class overloadingConstructor {
+        private String name;
+        private int age;
+        private String sex;
+
+        public overloadingConstructor(String name, int age, String sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        public overloadingConstructor(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public void out() {
+            System.out.println("姓名 " + name + " 年龄 " + age + " 性别 " + sex);
+        }
+
+    }
+
+
+
+    public static class cloneConstructor {
+        private String animal;
+        private String variety;
+
+        public String getAnimal() {
+            return animal;
+        }
+
+        private void setAnimal(String animal) {
+            this.animal = animal;
+        }
+
+        private String getVariety() {
+            return variety;
+        }
+
+        private void setVariety(String variety) {
+            this.variety = variety;
+        }
+
+        public cloneConstructor(String animal, String variety) {
+            this.animal = animal;
+            this.variety = variety;
+        }
+        public cloneConstructor(cloneConstructor cloneConstructor) {
+            this.animal = cloneConstructor.getAnimal();
+            this.variety = cloneConstructor.getVariety();
+        }
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            // clone方法不能直接调用，必须通过重载和super关键字才能调用
+            return super.clone();
+        }
+        public void out() {
+            System.out.println("这是一个 " + animal  + " 它的品种是 " + variety );
+        }
+
+    }
+
     public static void classConstructor() {
         System.out.println();
         System.out.println("构造方法：Java 有两种类型的构造方法：无参构造方法和有参构造方法。");
         System.out.println("创建构造方法的规则：");
         System.out.println("1.构造方法的名字必须和类名一样");
-        System.out.println("1.构造方法没有返回类型，包括 void");
-        System.out.println("1.构造方法不能是抽象的（abstract）、静态的（static）、最终的（final）、同步的（synchronized）。");
+        System.out.println("2.构造方法没有返回类型，包括 void");
+        System.out.println("3.构造方法不能是抽象的（abstract）、静态的（static）、最终的（final）、同步的（synchronized）。");
+
+        noArgsConstructor noArgsConstructor = new noArgsConstructor();
+        System.out.println("无参构造方法演示：" + noArgsConstructor.getArgsName());
+
+        argsConstructor argsConstructor = new argsConstructor("有参构造方法");
+        System.out.println("有参构造方法演示：" + argsConstructor.getArgsName());
+
+        overloadingConstructor overloadingConstructor1 = new overloadingConstructor("coderWorld",25, "男");
+        overloadingConstructor overloadingConstructor2 = new overloadingConstructor("coderWorld",25);
+
+        System.out.println("重载构造函数方法演示：");
+        overloadingConstructor1.out();
+        overloadingConstructor2.out();
+
+        System.out.println("构造函数方法与方法区别：");
+        System.out.println("1.构造函数没有返回值，方法有返回值");
+        System.out.println("2.构造函数必须与类名同名，方法不一定同名");
+        System.out.println("3.构造函数由编译器隐式调用，方法由开发者显示调用");
+        System.out.println("4.构造函数由编译器或开发者提供，方法由开发者提供");
+        System.out.println("5.构造函数一般用于初始化对象的字段，方法由开发者定义作用");
+
+        System.out.println("对象的复制：");
+        System.out.println("1.构造函数复制：");
+        cloneConstructor cloneConstructor1 = new cloneConstructor("狗", "泰迪");
+        cloneConstructor cloneConstructor2 = new cloneConstructor(cloneConstructor1);
+        cloneConstructor2.out();
+        System.out.println("2.对象复制：");
+        cloneConstructor cloneConstructor3 = new cloneConstructor("狗", "柯基");
+        cloneConstructor cloneConstructor4 = new cloneConstructor("狗", "哈士奇");
+        System.out.println("复制前：");
+        cloneConstructor4.out();
+        cloneConstructor4.setAnimal(cloneConstructor3.getAnimal());
+        cloneConstructor4.setVariety(cloneConstructor3.getVariety());
+        System.out.println("复制后：");
+        cloneConstructor4.out();
+        System.out.println("2.clone方法：");
+        cloneConstructor cloneConstructor5 = new cloneConstructor("猫", "无毛猫");
+        cloneConstructor cloneConstructor6  = (cloneConstructor) cloneConstructor5.clone();
+
     }
+
+
 
 
     public static void main(String[] args) {

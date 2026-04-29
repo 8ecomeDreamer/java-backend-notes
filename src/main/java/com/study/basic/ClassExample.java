@@ -223,13 +223,13 @@ public class ClassExample {
                 "public：被 public 修饰的方法或者变量，在任何地方都是可见的。");
     }
 
-    public static class codeInitA {
-        codeInitA () {
+    public static class classCodeInitA {
+        classCodeInitA () {
             System.out.println("父类构造方法");
         }
     }
-    public static class codeInitB extends codeInitA{
-        codeInitB() {
+    public static class classCodeInitB extends classCodeInitA{
+        classCodeInitB() {
             System.out.println("子类构造方法");
         }
 
@@ -238,15 +238,29 @@ public class ClassExample {
         }
 
         public static void main(String[] args) {
-            new codeInitB();
+            new classCodeInitB();
         }
     }
 
-    public static void codeInit() {
+    public static void classCodeInit() {
         System.out.println();
         System.out.println("代码初始化块：（了解执行即可）");
-        new codeInitB();
+        new classCodeInitB();
         System.out.println("静态初始化块在类加载时执行，只会执行一次，并且优先于实例初始化块和构造方法的执行；实例初始化块在每次创建对象时执行，在构造方法之前执行");
+    }
+
+
+    public static void classAbstract() {
+        System.out.println();
+        System.out.println("定义:定义抽象类的时候需要用到关键字 abstract，放在 class 关键字前。《阿里的 Java 开发手册》上有强调，抽象类命名要使用 Abstract 或 Base 开头");
+        System.out.println("特征:抽象类是不能实例化的，尝试通过 new 关键字实例化的话，编译器会报错，虽然抽象类不能实例化，但可以有子类。子类通过 extends 关键字来继承抽象类。");
+        System.out.println("应用场景:");
+        System.out.println("1.当我们希望一些通用的功能被多个子类复用的时候，就可以使用抽象类。");
+        System.out.println("2.当我们需要在抽象类中定义好 API，然后在子类中扩展实现的时候就可以使用抽象类。");
+        System.out.println("总结:");
+        System.out.println("1.抽象类不能被实例化。");
+        System.out.println("2.抽象类必须有一个抽象方法，且该方法必须在继承的子类中实现。");
+        System.out.println("3.抽象类没有方法体。");
     }
 
 
@@ -260,7 +274,7 @@ public class ClassExample {
         classNativeMethod();
         classConstructor();
         classAccessControl();
-        codeInit();
-
+        classCodeInit();
+        classAbstract();
     }
 }

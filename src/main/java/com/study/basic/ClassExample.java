@@ -209,7 +209,45 @@ public class ClassExample {
 
     }
 
+    public static void classAccessControl() {
+        System.out.println();
+        System.out.println("在 Java 中，提供了四种访问权限控制：");
+        System.out.println("默认访问权限（包访问权限）\n" +
+                "public\n" +
+                "private\n" +
+                "protected");
+        System.out.println("这些修饰符可以修饰类和方法和变量");
+        System.out.println("默认访问权限（包访问权限）：如果一个类的方法或变量被包访问权限修饰，也就意味着只能在同一个包中的其他类中显示地调用该类的方法或者变量，在不同包中的类中不能显式地调用该类的方法或变量。\n" +
+                "private：如果一个类的方法或者变量被 private 修饰，那么这个类的方法或者变量只能在该类本身中被访问，在类外以及其他类中都不能显式的进行访问。\n" +
+                "protected：如果一个类的方法或者变量被 protected 修饰，对于同一个包的类，这个类的方法或变量是可以被访问的。对于不同包的类，只有继承于该类的类才可以访问到该类的方法或者变量。\n" +
+                "public：被 public 修饰的方法或者变量，在任何地方都是可见的。");
+    }
 
+    public static class codeInitA {
+        codeInitA () {
+            System.out.println("父类构造方法");
+        }
+    }
+    public static class codeInitB extends codeInitA{
+        codeInitB() {
+            System.out.println("子类构造方法");
+        }
+
+        {
+            System.out.println("代码初始化块");
+        }
+
+        public static void main(String[] args) {
+            new codeInitB();
+        }
+    }
+
+    public static void codeInit() {
+        System.out.println();
+        System.out.println("代码初始化块：（了解执行即可）");
+        new codeInitB();
+        System.out.println("静态初始化块在类加载时执行，只会执行一次，并且优先于实例初始化块和构造方法的执行；实例初始化块在每次创建对象时执行，在构造方法之前执行");
+    }
 
 
     public static void main(String[] args) throws CloneNotSupportedException {
@@ -221,6 +259,8 @@ public class ClassExample {
         classMethod();
         classNativeMethod();
         classConstructor();
+        classAccessControl();
+        codeInit();
 
     }
 }

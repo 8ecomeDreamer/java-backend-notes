@@ -268,6 +268,11 @@ public class ClassExample {
     }
 
 
+    public static void innerClass() {
+        System.out.println();
+    }
+
+
     public static void main(String[] args) throws CloneNotSupportedException {
         classIntroduce();
         classCreate();
@@ -280,5 +285,6 @@ public class ClassExample {
         classCodeInit();
         classAbstract();
         interfaceClass();
+        innerClass();
     }
 }

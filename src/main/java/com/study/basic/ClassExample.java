@@ -273,6 +273,59 @@ public class ClassExample {
     }
 
 
+    public static void javaCharacteristicsClass() {
+        System.out.println();
+        System.out.println("继承封装多态");
+    }
+
+
+
+    public static void thisOrSuperClass() {
+        System.out.println();
+        System.out.println("this和super");
+    }
+
+
+
+    public static void staticClass() {
+        System.out.println();
+        System.out.println("static");
+    }
+
+
+
+    public static void finalClass() {
+        System.out.println();
+        System.out.println("final");
+    }
+
+    public static void instanceOfClass() {
+        System.out.println();
+        System.out.println("instanceOf");
+    }
+
+    public static void immutableClass() {
+        System.out.println();
+        System.out.println("immutable");
+    }
+
+    public static void overRideOverLoadClass() {
+        System.out.println();
+        System.out.println("override:");
+        System.out.println("overload:");
+    }
+
+    public static void annotationClass() {
+        System.out.println();
+        System.out.println("annotation:");
+    }
+
+    public static void enumClass() {
+        System.out.println();
+        System.out.println("enum:");
+    }
+
+
     public static void main(String[] args) throws CloneNotSupportedException {
         classIntroduce();
         classCreate();
@@ -284,7 +337,5 @@ public class ClassExample {
         classAccessControl();
         classCodeInit();
         classAbstract();
-        interfaceClass();
-        innerClass();
     }
 }

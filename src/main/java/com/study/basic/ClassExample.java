@@ -263,9 +263,12 @@ public class ClassExample {
         System.out.println("3.抽象类没有方法体。");
     }
 
+    public static void interfaceClass() {
+        System.out.println();
+    }
+
 
     public static void main(String[] args) throws CloneNotSupportedException {
-
         classIntroduce();
         classCreate();
         classObjectMethod();
@@ -276,5 +279,6 @@ public class ClassExample {
         classAccessControl();
         classCodeInit();
         classAbstract();
+        interfaceClass();
     }
 }

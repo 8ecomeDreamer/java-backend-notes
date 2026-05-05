@@ -3,6 +3,7 @@ package com.study.basic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class UtilExample {
@@ -71,15 +72,35 @@ public class UtilExample {
         int[] fillArray = new int[5];
         Arrays.fill(fillArray, 9527);
         System.out.println(Arrays.toString(fillArray));
-        System.out.println("copy和copyRange方法在无元素时会默认填充null");
+        System.out.println("copy和copyRange方法在无元素时会默认填充null, fill则是默认填充数组");
         System.out.println("2.比较数组");
+        boolean equalResult1 = Arrays.equals(new String[] { "沉", "默", "王", "二" }, exampleStringArray);
+        boolean equalResult2 = Arrays.equals(new String[] { "1", "2", "3"}, exampleStringArray);
+        System.out.println("比较数组1结果： " + equalResult1);
+        System.out.println("比较数组2结果： " + equalResult2);
         System.out.println("3.数组排序");
+        String[] sortedArray = new String[] {"11", "22", "33","1", "2", "3"};
+        Arrays.sort(sortedArray);
+        System.out.println("排序结果： " + Arrays.toString(sortedArray));
         System.out.println("4.数组检索");
+        int binarySearchResult = Arrays.binarySearch(sortedArray, "33");
+        System.out.println("二分查找结果： " + binarySearchResult);
         System.out.println("5.数组转流");
+        System.out.println("数组转流结果： " + Arrays.stream(sortedArray).count());
         System.out.println("6.打印数组");
+        System.out.println("打印数组结果： 使用Arrays.toString可以打印");
         System.out.println("7.数组转list");
+        List<String> rets = Arrays.asList(sortedArray);
+//        rets.add("coderWorld");
+        System.out.println("数组转list结果： " + rets);
         System.out.println("8.setAll");
+        int[] array = new int[10];
+        Arrays.setAll(array, i -> i * 10);
+        System.out.println("数组 setAll 结果： " + Arrays.toString(array));
         System.out.println("9.parallelPrefix");
+        int[] arr = new int[] { 1, 2, 3, 4};
+        Arrays.parallelPrefix(arr, (left, right) -> left + right);
+        System.out.println("数组 parallelPrefix 结果： " +Arrays.toString(arr));
     }
 
 

@@ -1,10 +1,10 @@
 package com.study.basic;
 
+import org.springframework.util.StringUtils;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class UtilExample {
 
@@ -104,6 +104,62 @@ public class UtilExample {
     }
 
 
+    public static void useStringUtilsDemo()   {
+        System.out.println();
+        System.out.println("StringUtils工具类的使用");
+        String str1 = null;
+        String str2 = "";
+        String str3 = " ";
+        String str4 = "abc";
+        System.out.println("1.字符串判空");
+//        System.out.println("isEmpty: " + StringUtils.isEmpty(str1) + " " + StringUtils.isEmpty(str2) + StringUtils.isEmpty(str3) + " " + StringUtils.isEmpty(str4));
+        System.out.println("2.分割字符串");
+//        String str5 = "null";
+//        System.out.println("split : " + StringUtils.split(str5, "") );
+//        System.out.println("split ,: " + StringUtils.split(str5, ",") );
+        System.out.println("3.判断纯数字");
+        String str6 = "123";
+        String str7 = "123q";
+        String str8 = "0.33";
+        System.out.println("4.集合拼接成字符串");
+//        List<String> list = new ArrayList<>();
+//        list.add("a");
+//        list.add("b");
+//        list.add("c");
+//        joinList = StringUtils.join(list, "");
+//        List<Integer> list2 = Lists.newArrayList(1, 2, 3);
+        System.out.println("5.其他");
+        System.out.println("StringUtils类很多没用了");
+    }
+
+
+    public static void useObjectsDemo() {
+        System.out.println();
+        System.out.println("Objects工具类的使用");
+        System.out.println("1.对象判空 isNull isNotNull");
+        Integer obj1 = 1;
+        Integer obj2 = null;
+        System.out.println("obj1是否为空： " + Objects.isNull(obj1) + " obj2是否为空： " + Objects.isNull(obj2));
+        System.out.println("2.对象为空时抛异常 requireNonNull");
+        Integer integer1 = 128;
+        Integer integer2 = null;
+        System.out.println("integer1空时抛异常:  " + Objects.requireNonNull(integer1));
+//        System.out.println("integer2空时抛异常:  " + Objects.requireNonNull(integer2));
+        System.out.println("3.判断两个对象是否相等 Object.equals");
+        System.out.println("obj1 和 integer1 是否相等： " + Objects.equals(obj1, integer1));
+        System.out.println("4.获取对象的hashCode");
+        System.out.println("obj1 的 hashCode： " + Objects.hashCode(obj1));
+        System.out.println("5.比较两个对象");
+        System.out.println("obj1 和 integer1 是否相等： " + Objects.compare(obj1, integer1, (o1, o2) -> o1.compareTo(o2)));
+        System.out.println("6.比较两个数组 deepEquals");
+        String[][] nestedArray1 = {{"A", "B"}, {"C", "D"}};
+        String[][] nestedArray2 = {{"A", "B"}, {"C", "D"}};
+        String[][] nestedArray3 = {{"A", "B"}, {"C", "E"}};
+
+        System.out.println("比较两个数组： " + Objects.deepEquals(nestedArray1, nestedArray2));
+    }
+
+
     public static void useScanner() throws FileNotFoundException  {
         System.out.println();
 //        useScannerDemo();
@@ -116,8 +172,23 @@ public class UtilExample {
         useArraysDemo();
     }
 
+
+    public static void useStringUtils()  {
+        System.out.println();
+        useStringUtilsDemo();
+    }
+
+
+
+    public static void useObjects()  {
+        System.out.println();
+        useObjectsDemo();
+    }
+
     public static void main(String[] args) throws Exception {
         useScanner();
         useArrays();
+        useStringUtils();
+        useObjects();
     }
 }

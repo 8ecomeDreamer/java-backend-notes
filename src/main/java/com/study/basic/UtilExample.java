@@ -1,7 +1,5 @@
 package com.study.basic;
 
-import org.springframework.util.StringUtils;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -160,12 +158,63 @@ public class UtilExample {
     }
 
 
+    public static void useCollectionsDemo() {
+        System.out.println();
+        System.out.println("Collections工具类的使用");
+        System.out.println("1.排序操作");
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("原始数组内容：" + list);
+        Collections.reverse(list);
+        System.out.println("反转数组： " + list);
+        Collections.shuffle(list);
+        System.out.println("洗牌数组： " + list);
+        Collections.sort(list);
+        System.out.println("自然升序数组： " + list);
+        list.sort((a, b) -> b.compareTo(a));
+        System.out.println("规则器排序数组： " + list);
+        Collections.swap(list, 1, 2);
+        System.out.println("交换数组： " + list);
+        System.out.println("2.查找操作");
+        List<Integer> list2 = new ArrayList<>();
+        list2.add(2);
+        list2.add(32);
+        list2.add(1006);
+        list2.add(88);
+        int maxNum = Collections.max(list2);
+        System.out.println("最大元素：" + maxNum);
+        int minNum = Collections.min(list2);
+        System.out.println("最小元素： " + minNum);
+        int frequency = Collections.frequency(list2, 88);
+        System.out.println("出现的次数： " + frequency);
+        System.out.println("排序前的二分查找结果： " + list2);
+        int i = Collections.binarySearch(list2, 88);
+        System.out.println("排序后的二分查找结果： " + i);
+        Collections.fill(list2, 151);
+        System.out.println("填充后的结果： " + list2);
+        System.out.println("3.同步控制");
+        System.out.println("4.不可变集合 emptyXXX SingletonXXX unmodifiableXXX");
+        List<Object> emptyList = Collections.emptyList();
+//        emptyList.add(2); 如果往emptyXxx中添加元素会报错
+        Set<Object> objects = Collections.emptySet();
+        System.out.println("emptyList： " + emptyList + " emptySet： " + objects);
+        System.out.println("5.其他 addAll disJoint");
+        List<Integer> listAll = new ArrayList<>();
+         Collections.addAll(listAll, 32,42,2,12);
+        System.out.println("listAll addAll 后 " + listAll);
+        System.out.println("list2 " + list2);
+        System.out.println("list2 和 listAll 是否有交集" + Collections.disjoint(list2, listAll));
+        System.out.println("6.CollectionUtils：Spring 和 Apache 都有提供的集合工具类");
+    }
+
+
     public static void useScanner() throws FileNotFoundException  {
         System.out.println();
 //        useScannerDemo();
         useScannerScan();
     }
-
 
     public static void useArrays()  {
         System.out.println();
@@ -178,11 +227,14 @@ public class UtilExample {
         useStringUtilsDemo();
     }
 
-
-
     public static void useObjects()  {
         System.out.println();
         useObjectsDemo();
+    }
+
+    public static void useCollections()  {
+        System.out.println();
+        useCollectionsDemo();
     }
 
     public static void main(String[] args) throws Exception {
@@ -190,5 +242,6 @@ public class UtilExample {
         useArrays();
         useStringUtils();
         useObjects();
+        useCollections();
     }
 }

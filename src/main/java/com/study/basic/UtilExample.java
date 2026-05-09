@@ -1,5 +1,17 @@
 package com.study.basic;
 
+import cn.hutool.core.convert.Convert;
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.lang.Console;
+import cn.hutool.core.lang.Dict;
+import cn.hutool.core.util.IdcardUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.SecureUtil;
+import cn.hutool.crypto.symmetric.AES;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -209,6 +221,80 @@ public class UtilExample {
         System.out.println("6.CollectionUtils：Spring 和 Apache 都有提供的集合工具类");
     }
 
+    public static void useHutoolDemo()   {
+        System.out.println();
+        System.out.println("1.引入hutool");
+        System.out.println("2.类型转换");
+        String param = "10";
+        System.out.println("hutool转成整数: " + Convert.toInt(param));
+        String param2 = "2026-10-21";
+        System.out.println("hutool转成日期: " + Convert.toDate(param2));
+        String unicodeStr = "coderWorld";
+        System.out.println("hutool转成unicode: " + Convert.strToUnicode(unicodeStr));
+        System.out.println("3.日期时间");
+        Date date = DateUtil.date();
+        Date JDKDate = new Date();
+        System.out.println("hutool当前时间： " + date);
+        System.out.println("JDK当前时间： " + JDKDate);
+        String parsedDate1 = "2028-04-12"; // YYMMDD
+        String parsedDate2 = "2029-2-42 17:43:32"; // YYMMDD HH:mm:ss
+        String parsedDate3 = "14:30:24"; // HH:mm:ss
+        String parsedDate4 = "2029-2-42 17:43"; // YYMMDD HH:mm
+        String parsedDate5 = "2029-2-42 7:43:"; // YYMMDD HH:mm:ss.SSS
+        String parsedDate6 = ""; // 中文 二零一二年五月十五日
+        System.out.println("hutool日期转对应格式： " );
+        System.out.println("parsedDate1： " + DateUtil.parse(parsedDate1));
+        System.out.println("parsedDate2： " + DateUtil.parse(parsedDate2));
+        System.out.println("parsedDate3： " + DateUtil.parse(parsedDate3));
+        System.out.println("parsedDate4： " + DateUtil.parse(parsedDate4));
+        System.out.println("parsedDate5： " + DateUtil.parse(parsedDate5));
+        System.out.println("parsedDate6： " + DateUtil.parse(parsedDate6));
+        System.out.println("4.IO 流相关");
+        System.out.println("IO流总结我觉得蛮对的，所有项目中File类中都应该要有关于文件移动、复制、删除等操作、以及文件名获取、文件路径获取、判断文件是否存在等方法");
+        System.out.println("5.字符串工具");
+        String template = "{}, 聪明勇敢有力气";
+        String str = StrUtil.format(template, "coderWorld");
+        System.out.println("str： " + str);
+        System.out.println("6.反射工具");
+        System.out.println("7.压缩工具");
+        System.out.println("8.身份证工具");
+        String ID_18 = "321083197812162119";
+        String ID_15 = "150102880730303";
+        boolean valid = IdcardUtil.isValidCard(ID_18);
+        boolean valid15 = IdcardUtil.isValidCard(ID_15);
+        System.out.println("18位身份证： " + valid);
+        System.out.println("15位身份证： " + valid15);
+        System.out.println("9.扩展 HashMap");
+        Dict dict = Dict.create().set("name", "coderWorld").set("age", 18).set("sex", "男");
+        Integer age = dict.getInt("age");
+        String name = dict.getStr("name");
+        System.out.println("dict： " + dict);
+        System.out.println("age： " + age);
+        System.out.println("name： " + name);
+        System.out.println("Dict是字典类型，专门用于存储key-value类型，具有高效的查找性能。");
+        System.out.println("10.控制台打印");
+        int[] consoleInt = {41,22,31};
+        Console.log("Hutool的打印类，很方便~ " + Arrays.toString(consoleInt));
+        System.out.println("11.字段验证器");
+        System.out.println("12.双向查找 Map");
+        System.out.println("13.图片工具");
+        System.out.println("14.配置文件");
+        System.out.println("15.日志工厂");
+        System.out.println("16.缓存工具");
+        System.out.println("17.加密解密");
+        AES aes = SecureUtil.aes();
+        String encrypt = aes.encryptHex("coderWorld");
+        System.out.println("encrypt： " + encrypt);
+        String decrypt = aes.decryptStr(encrypt);
+        System.out.println("decrypt： " + decrypt);
+        System.out.println("18.其他类库");
+
+        System.out.println("总结：");
+        System.out.println("1. hutool常见类库： Convert、DateUtil");
+        System.out.println("2. 关于DateUtil： ");
+        System.out.println("2-1. toDate方法默认转成 YYMMDD HH:mm:ss 格式");
+    }
+
 
     public static void useScanner() throws FileNotFoundException  {
         System.out.println();
@@ -236,6 +322,10 @@ public class UtilExample {
         System.out.println();
         useCollectionsDemo();
     }
+    public static void useHutool()  {
+        System.out.println();
+        useHutoolDemo();
+    }
 
     public static void main(String[] args) throws Exception {
         useScanner();
@@ -243,5 +333,6 @@ public class UtilExample {
         useStringUtils();
         useObjects();
         useCollections();
+        useHutool();
     }
 }

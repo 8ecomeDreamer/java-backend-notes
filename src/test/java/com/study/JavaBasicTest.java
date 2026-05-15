@@ -1,7 +1,7 @@
 package com.study;
 
-import com.study.basic.ReverseInteger;
-import com.study.basic.StringToInteger;
+import com.study.basic.demo.ReverseInteger;
+import com.study.basic.demo.StringToInteger;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

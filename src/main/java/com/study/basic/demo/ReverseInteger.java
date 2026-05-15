@@ -1,4 +1,4 @@
-package com.study.basic;
+package com.study.basic.demo;
 
 /**
  *   翻转整数： 给定一个 32 位有符号整数，将整数中的数字进行反转。 输入: 123 输出: 321  输入: -123 输出: -321

@@ -1,4 +1,4 @@
-package com.study.basic;
+package com.study.basic.demo;
 
 /**
  * 请你来实现一个 parseInt 方法，使其能将字符串转换成整数。

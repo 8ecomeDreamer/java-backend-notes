@@ -88,6 +88,16 @@ public class IOExample {
         System.out.println("读取文件内容： " + randomAccessFileRead(file));
     }
 
+
+    public static void useApacheFileUtilsApiDemo() throws IOException, EOFException {
+        System.out.println("useApacheFileUtilsApiDemo");
+    }
+
+
+    public static void useHutoolFileUtilsApiDemo() throws IOException, EOFException {
+        System.out.println("useHutoolFileUtilsApiDemo");
+    }
+
     public static void FileExample() throws IOException, EOFException {
         System.out.println();
         System.out.println("文件流");
@@ -116,7 +126,9 @@ public class IOExample {
         System.out.println("怎么记？r:read，只读。rw: read write,支持读写操作。 rws:rw跟前面相同 s是synchronous,数据+元数据同步。 rwd：d是Data，只强制同步文件数据，不同步元数据。 rws和rwd比较难记，可以记成rws适用于更安全的场景，rws相对rwd更安全但同步速度更慢。");
         useRandomAccessFileDemo();
         System.out.println();
-
+        useApacheFileUtilsApiDemo();
+        System.out.println();
+        useHutoolFileUtilsApiDemo();
     }
 
 
